@@ -64,6 +64,9 @@ let productOfArray;
 // productOfArray = resultsArray.flat(Infinity).reduce( ( i, j ) => i+=j );
 
 function counting( array ) {
+	if( 0 === array.length ) {
+		return 0
+	}
 	let sum = 1;
 	for( const i of array ) {
 		if( typeof i === 'number' ) sum *= i;
