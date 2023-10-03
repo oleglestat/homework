@@ -5,10 +5,9 @@ const userNames = ["Петрик Ольга Іванівна", "Гнатюк П�
 let initials;
 
 initials = userNames.map( ( person ) => {
-	person = person.match( /[А-ЯЄІЇҐ]/g);
+	person = person.split( ' ' );
+	person = person.map( name => name[0] );
 	return person.join( '.' ) + '.';
-	// person = person.reduce( (accumulator, currentValue) => accumulator + '.' + currentValue);
-	// return person + '.';
 } );
 
 initials.sort();
@@ -18,7 +17,7 @@ console.log(initials); // [ "Г.П.А.", "П.О.І.", "Р.А.О."]
 * 2. Задача на фільтрування масиву
 * */
 
-const userNames2 = ['Петро', 'Емма', 'Юстин', 'Ілля', 'Марта', 'Яна', 'Василь', 'Антон', 'Олена'];
+const userNames2 = [ 'Петро', 'Емма', 'Юстин', 'Ілля', 'Марта', 'Яна', 'Василь', 'Антон', 'Олена' ];
 let vowels = 'АЕЄИІЇОУЮЯ';
 let filteredNames = [];
 
@@ -35,7 +34,7 @@ let filteredNames = [];
 
 // 2.2 через вбудований метод масивів
 
-filteredNames = userNames2.filter( name => vowels.indexOf(name[0]) >= 0 );
+filteredNames = userNames2.filter( name => vowels.includes( name[0] ) );
 
 console.log(filteredNames); // ['Емма', 'Юстин', 'Ілля', 'Яна', 'Антон', 'Олена']
 
@@ -44,12 +43,7 @@ console.log(filteredNames); // ['Емма', 'Юстин', 'Ілля', 'Яна', 
 * */
 
 const currentMaxValue = 4589;
-let reverseMaxValue = '';
-const stringNumber = currentMaxValue.toString();
-
-for( let i = stringNumber.length - 1; i >= 0; i--) {
-	reverseMaxValue+= stringNumber[i];
-}
+let reverseMaxValue = currentMaxValue.toString().split( '' ).reverse().join( '' );
 reverseMaxValue = Number(reverseMaxValue);
 
 console.log(reverseMaxValue); // 9854
@@ -61,16 +55,20 @@ console.log(typeof reverseMaxValue); // 'number'
 
 const resultsArray = [1, 2, [3, [4]]];
 let productOfArray;
-// productOfArray = resultsArray.flat(Infinity).reduce( ( i, j ) => i+=j );
+// productOfArray = resultsArray.flat(Infinity).reduce( ( accumulator, currentValue ) => accumulator*=currentValue );
 
 function counting( array ) {
-	if( 0 === array.length ) {
+	if( !array.length ) {
 		return 0
 	}
 	let sum = 1;
-	for( const i of array ) {
-		if( typeof i === 'number' ) sum *= i;
-		if( typeof i === 'object') sum *= counting( i );
+	for( const value of array ) {
+		if( typeof value === 'number' ) {
+			sum *= value;
+		}
+		if( Array.isArray( value ) ) {
+			sum *= counting( value );
+		}
 	}
 	return sum;
 }
