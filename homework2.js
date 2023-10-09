@@ -2,28 +2,31 @@
 1. Задача про обчислення різниці часу
  */
 
-function durationBetweenDates( date1, date2, units='seconds' ) {
+function durationBetweenDates( date1 = new Date(1970-01-01).toString(),
+							   date2 = new Date().toString(),
+							   units= 'seconds' ) {
 	let smallerDate = Math.min( Date.parse( date1 ), Date.parse( date2 ));
 	let biggerDate = Math.max( Date.parse( date1 ), Date.parse( date2 ));
 	//let [ smallerDate, biggerDate ] = [ Date.parse( date1 ), Date.parse( date2 ) ].sort( ( a, b ) => a - b );
+
 	if( !smallerDate || !biggerDate ) {
 		console.log( 'Wrong date format' );
 		return;
 	}
-	const result = biggerDate - smallerDate;
+	const result = (biggerDate - smallerDate)/1000;
 	switch ( units ) {
 		// 'days', 'hours', 'minutes', seconds)
 		case 'days':
-			console.log( `${ Math.floor(result/1000/60/60/24 ) } days` );
+			console.log( `${ Math.floor(result/60/60/24 ) } days` );
 			break;
 		case 'hours':
-			console.log( `${result/1000/60/60} hours` );
+			console.log( `${result/60/60} hours` );
 			break;
 		case 'minutes':
-			console.log( `${result/1000/60} minutes` );
+			console.log( `${result/60} minutes` );
 			break;
 		case "seconds":
-			console.log( `${result/1000} seconds` );
+			console.log( `${result} seconds` );
 			break;
 		default:
 			console.log( 'Wrong interval parameter' );
@@ -31,6 +34,7 @@ function durationBetweenDates( date1, date2, units='seconds' ) {
 	}
 }
 
+durationBetweenDates()  //
 durationBetweenDates('02 Aug 1985', '03 Aug 1985', 'seconds')  // поверне '86400 seconds'
 durationBetweenDates('7 Jan 1980', '03 Feb 2033', 'minutes')  // поверне '27915900 minutes'
 durationBetweenDates('31 Jan 1970', '03 Feb 2033', 'hours')  // поверне '552337 hours'
@@ -61,7 +65,8 @@ function optimizer(data) {
 
 let updatedPriceData = optimizer(priceData);
 
-console.log(updatedPriceData) // {apples: '23.40', bananas: '48.00', oranges: '48.76'}
+console.log(priceData); // { Apples: '23.4', BANANAS: '48', oRAngGEs: '48.7584', 'Pine Apple': '233.73'}
+console.log(updatedPriceData) // {apples: '23.40', bananas: '48.00', oranges: '48.76', 'pine apple': '233.73'}
 
 /*
   3. Задача про рекурсію
