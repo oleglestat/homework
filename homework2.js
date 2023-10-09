@@ -17,20 +17,15 @@ function durationBetweenDates( date1 = new Date(1970-01-01).toString(),
 	switch ( units ) {
 		// 'days', 'hours', 'minutes', seconds)
 		case 'days':
-			console.log( `${ Math.floor(result/60/60/24 ) } days` );
-			break;
+			return `${ Math.floor(result/60/60/24 ) } days`;
 		case 'hours':
-			console.log( `${result/60/60} hours` );
-			break;
+			return `${result/60/60} hours`;
 		case 'minutes':
-			console.log( `${result/60} minutes` );
-			break;
+			return `${result/60} minutes`;
 		case "seconds":
-			console.log( `${result} seconds` );
-			break;
+			return `${result} seconds`;
 		default:
-			console.log( 'Wrong interval parameter' );
-			break;
+			return  'Wrong interval parameter';
 	}
 }
 
