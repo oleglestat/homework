@@ -60,32 +60,10 @@ console.log(movies.sort(byProperty('movieName', '>')));
 
 function byProperty(property, direction) {
 	return function ( a, b ) {
-		if( typeof a[property] === 'number') {
-			if( direction === '>') {
-				return a[property] - b[property];
-			} else if( direction === '<' ) {
-				return b[property] - a[property];
-			}
-		} else if( typeof a[property] === 'string' ) {
-			let nameA = a[property];
-			let nameB = b[property];
-			if( direction === '>') {
-				if( nameA > nameB ) {
-					return 1;
-				}
-				if( nameA < nameB ) {
-					return -1;
-				}
-				return 0
-			} else if( direction === '<' ) {
-				if( nameA > nameB ) {
-					return -1;
-				}
-				if( nameA < nameB ) {
-					return 1;
-				}
-				return 0
-			}
+		if( direction === '>' ) {
+			return a[property] > b[property] ? 1 : -1;
+		} else if( direction === '<' ) {
+			return a[property] < b[property] ? 1 : -1;
 		}
 	}
 }
