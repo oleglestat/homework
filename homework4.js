@@ -30,17 +30,16 @@
 // // 1
 // // BOOM!
 //
-// function detonatorTimer(delay) {
-// 	if( 0 === delay ) {
-// 		setTimeout(() => {
-// 			console.log( 'BOOM!' )
-// 		}, 1000);
-// 	} else {
-// 		setTimeout(() => {
+// function detonatorTimer( delay ) {
+// 	setTimeout( function tik() {
+// 		if( delay === 0 ) {
+// 			console.log( 'BOOM!' );
+// 		} else {
 // 			console.log( delay );
-// 			detonatorTimer(delay-1 );
-// 		}, 1000);
-// 	}
+// 			delay--;
+// 			setTimeout( tik, 1000 );
+// 		}
+// 	})
 // }
 
 /*
@@ -74,9 +73,9 @@
 4. А тепер зробіть всі свої методи з попередньої задачі прив'язаними до контексту свого об'єкту
  */
 
-let securedSelfIntroduce = me.introduce.bind(me);
-let securedSelfPassione = me.passion.bind(me);
-let securedSelfWhyAreYouLikeThis = me.whyAreYouLikeThis.bind(me);
+// let securedSelfIntroduce = me.introduce.bind(me);
+// let securedSelfPassione = me.passion.bind(me);
+// let securedSelfWhyAreYouLikeThis = me.whyAreYouLikeThis.bind(me);
 
 // setTimeout(securedSelfIntroduce, 1000); // виведе коректний результат
 // setTimeout(securedSelfPassione, 2000); // виведе коректний результат
@@ -92,10 +91,10 @@ function someFunction( number ) {
 
 function slower(func, seconds) {
 	return ( number ) => {
-		setTimeout( () => func(number), seconds * 1000 );
+		setTimeout( () => func.call(this, number), seconds * 1000 );
 	}
 }
 
 let slowedSomeFunction = slower(someFunction, 5); // обгортаєте свою довільну функцію 'someFunction' в декоратор і задає значення вповільнення
 
-slowedSomeFunction( 5 ) // викликаєте декоратор
+slowedSomeFunction( 7 ) // викликаєте декоратор
