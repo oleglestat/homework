@@ -8,34 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
 		updatePage( buttonStatus, date );
 	}
 
-	button.addEventListener( 'click', turnButton );
+	button.addEventListener( 'click', () => {
+		date = new Date().toJSON();
+		buttonStatus = buttonStatus === 'Turn on' ? 'Turn off' : 'Turn on';
+		updatePage( buttonStatus, date );
+		localStorage.setItem( 'date', date );
+		localStorage.setItem( 'buttonStatus', buttonStatus );
 
-	function turnButton() {
-		if( !date && !buttonStatus ) {
-			updatePage( 'Turn on' );
-		} else if( localStorage.getItem( 'buttonStatus' ) === 'Turn off' ) {
-			updatePage( 'Turn on' );
-		} else if( localStorage.getItem( 'buttonStatus' ) === 'Turn on' ) {
-			updatePage( 'Turn off' );
-
-		}
-	}
+	} );
 
 	function updatePage( buttonStatus, date ) {
-		let msg;
-		if( buttonStatus === 'Turn on' ) {
-			body.classList.add( 'dark' );
-			msg = 'turn off';
-		} else {
-			body.classList.remove( 'dark' );
-			msg = 'turn on';
-		}
-		if( !date ) {
-			localStorage.setItem( 'date', new Date().toJSON() );
-		}
-		localStorage.setItem( 'buttonStatus', buttonStatus );
-		date = new Date( localStorage.getItem( 'date' ) );
-		time.textContent = `Last ${ msg }: ${date.getDay()}-${date.getMonth()}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-		button.textContent = buttonStatus
+		date = new Date( date );
+		const msg = buttonStatus === 'Turn on' ? 'turn off' : 'turn on';
+		button.textContent = buttonStatus;
+		time.textContent = `Last ${ msg }: ${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+		body.classList.toggle( 'dark', buttonStatus === 'Turn on' );
 	}
 });
