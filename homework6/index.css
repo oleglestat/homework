@@ -1,0 +1,41 @@
+.container {
+    margin: 0 auto;
+    background: aliceblue;
+    width: 300px;
+    padding: 20px 20px 50px;
+}
+
+h3 {
+    font-family: monospace;
+}
+
+form.create-task-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.filter-task-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li.collection-item {margin-bottom: 10px;}
+
+ul.collection {
+    padding: unset;
+    width: 100%;
+    list-style-type: none;
+}
+
+.edit-item,
+.delete-item
+{
+    float: right;
+}
+
+span {
+    margin-left: 10px;
+}
