@@ -59,7 +59,7 @@ taskList.addEventListener('click', function (event) {
 
             localStorage.setItem('tasks', JSON.stringify(tasks));
         } else if( content.trim() === '' ) {
-            iconContainer.parentElement.childNodes[2].firstChild.click();
+            iconContainer.parentElement.childNodes[1].firstChild.click();
         }
     }
 })
