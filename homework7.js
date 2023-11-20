@@ -10,7 +10,7 @@
 
 // 5) у всіх чотирьох класів має бути один (крім проміжних) клас-предок
 
-class lotrCharacter {
+class LotrCharacter {
 	constructor(name, weaponOfChoice, skills) {
 		this.name = name;
 		this.weaponOfChoice = weaponOfChoice;
@@ -18,10 +18,11 @@ class lotrCharacter {
 	}
 }
 
-class Man extends lotrCharacter {
-	#corruptedByTheRing = false;
+class Man extends LotrCharacter {
+	#corruptedByTheRing;
 	constructor(name, weaponOfChoice, skills, age) {
-		super(name, weaponOfChoice, skills, shield);
+		super(name, weaponOfChoice, skills);
+		this.#corruptedByTheRing = false;
 		this.age = age;
 	}
 	corrupt() {
@@ -64,7 +65,7 @@ class ManOfGondor extends Man {
 	}
 }
 
-class Elf extends lotrCharacter {
+class Elf extends LotrCharacter {
 	#favoriteStar;
 	constructor(name, weaponOfChoice, skills) {
 		super(name, weaponOfChoice, skills);
@@ -84,7 +85,7 @@ class Elf extends lotrCharacter {
 	}
 }
 
-class Dwarf extends lotrCharacter {
+class Dwarf extends LotrCharacter {
 	#beardLength;
 	constructor(name, sonOf, weaponOfChoice, skills, beverage) {
 		super(name, weaponOfChoice, skills);
@@ -103,7 +104,7 @@ class Dwarf extends lotrCharacter {
 	}
 }
 
-class Hobbit extends lotrCharacter {
+class Hobbit extends LotrCharacter {
 	#gotRing;
 	constructor(name, weaponOfChoice, skills, adventure, ring) {
 		super(name, weaponOfChoice, skills);
@@ -123,3 +124,37 @@ class Hobbit extends lotrCharacter {
 		console.log( 'Po-ta-toes! Boil em, mash em, stick em in a stew - even you couldn\'t say no to that!' );
 	}
 }
+
+const gendalf = new LotrCharacter( 'Gendalf', 'staff', [ 'smoking', 'magic', 'fireworks', 'resurrection'] );
+const peasant = new Man( 'Noname', 'rake', [ 'drinking', 'sleeping' ], 56 );
+const eoten = new ManOfRohan( 'Eoten', 'spear', [ 'riding horses', 'archery' ], 36 );
+const aragorn = new ManOfGondor( 'Aragorn', 'sword', [ 'tracking', 'elf language' ], 89 );
+const legolas = new Elf( 'Legolas', 'bow', [ 'walking on snow', 'farsight' ] );
+const gimli = new Dwarf( 'Gimli', 'Torin', 'axe', [ 'sprinting', 'alcoholism' ], 'meed' );
+const frodo = new Hobbit( 'Frodo', 'dagger', [ 'gardening', 'sneaky' ], 10, true );
+
+
+
+
+console.log( gendalf );
+console.log( peasant );
+console.log( peasant.isCorrupt() );
+console.log( eoten.ridingNorth );
+eoten.sing();
+eoten.newDestination( 'Gondor' );
+console.log( eoten.ridingDirection );
+console.log( aragorn );
+aragorn.showSkills();
+aragorn.tellAbout();
+console.log( legolas );
+legolas.countKilled( 50 );
+console.log( legolas.killed );
+legolas.setFavoriteStar( 'Polar' );
+console.log( legolas.getFavoriteStar() );
+console.log( gimli );
+gimli.setBeard( '40 inch' );
+gimli.countKilled( 49 );
+console.log( gimli.getBeard() );
+console.log( gimli.ridesHorses );
+console.log( frodo );
+frodo.proposeRing();
