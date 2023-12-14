@@ -15,11 +15,16 @@ export class WeatherApp {
             `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${this.API_KEY}&units=metric`;
 
         this.isLoading = true;
-        let response = await fetch( url );
-        let data = await response.json();
-        console.log( data );
-        this.updateDOM( data );
-        this.isLoading = false;
+        try {
+            let response = await fetch( url );
+            let data = await response.json();
+            console.log( data );
+            this.updateDOM( data );
+        } catch (err) {
+            console.error(err);
+        } finally {
+            this.isLoading = false;
+        }
     }
 
     updateDOM = (data) => {

@@ -6,7 +6,7 @@ import {API_KEY, form, input} from './constants.js'
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        weatherApp.fetchData().catch(console.error);
+        weatherApp.fetchData();
 
         form.reset();
         input.focus();
