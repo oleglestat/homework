@@ -1,4 +1,8 @@
 "use strict";
-import token from "./constants";
+import { token } from "./constants.js";
 
-console.log(token);
+(function (){
+
+})();
+
+
