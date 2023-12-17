@@ -21,29 +21,29 @@
     </nav>
     <main>
         <section>
-            <form action="" method="post" class="calculator">
+            <form action="" method="post" name="calculator" class="calculator">
                 <div class="calculator-inputs">
                     <h2>Calculator form</h2>
                     <label for="date-one">Select date</label>
-                    <input id="date-one" type="date">
+                    <input id="date-one" name="dateOne" type="date" required>
                     <label for="date-two">Select second date</label>
-                    <input id="date-two" type="date" disabled>
+                    <input id="date-two" name="dateTwo" type="date" disabled required>
                 </div>
                 <div class="calculator-presets">
                     <h2>Presets</h2>
-                    <button id="day">7 days</button>
-                    <button id="month">30 days</button>
+                    <button id="day" disabled>7 days</button>
+                    <button id="month" disabled>30 days</button>
                 </div>
                 <fieldset>
-                    <label><input type="radio" name="days" value="days" /> Every day</label>
-                    <label><input type="radio" name="workdays" value="workdays" /> Workdays</label>
-                    <label><input type="radio" name="weekends" value="weekends" /> Weekends</label>
+                    <label><input type="radio" name="days" value="all" checked/> Every day</label>
+                    <label><input type="radio" name="days" value="workdays" /> Workdays</label>
+                    <label><input type="radio" name="days" value="weekends" /> Weekends</label>
                 </fieldset>
                 <fieldset>
-                    <label><input type="radio" name="days" value="days" /> Days</label>
-                    <label><input type="radio" name="hours" value="hours" /> Hours</label>
-                    <label><input type="radio" name="minutes" value="minutes" /> Minutes</label>
-                    <label><input type="radio" name="seconds" value="seconds" /> Seconds</label>
+                    <label><input type="radio" name="time" value="days" checked/> Days</label>
+                    <label><input type="radio" name="time" value="hours" /> Hours</label>
+                    <label><input type="radio" name="time" value="minutes" /> Minutes</label>
+                    <label><input type="radio" name="time" value="seconds" /> Seconds</label>
                 </fieldset>
                 <button type="submit" name="submit">Submit</button>
             </form>
