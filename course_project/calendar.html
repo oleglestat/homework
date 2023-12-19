@@ -2,31 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Calendar</title>
+    <script defer type="module" src="calendar.js"></script>
 </head>
 <body>
-<header>
-    <h1>My course project</h1>
-</header>
-<nav>
-    <ul>
-        <li>
-            <a>Time calculator</a>
-        </li>
-        <li>
-            Holiday calendar - you are here
-        </li>
-    </ul>
-</nav>
-<main>
-    <section>
-        <div>
-            <h2>Holiday calendar</h2>
-        </div>
-    </section>
-</main>
-<footer>
-    Powered by Oleh Chmut
-</footer>
+    <header>
+        <h1>My course project</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Time calculator</a>
+            </li>
+            <li>
+                Holiday calendar - you are here
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Holiday calendar</h2>
+        <section>
+            <label for="country">Select Country</label>
+            <select id="country" name="country">
+                <option value="">Chose a country</option>
+            </select>
+            <label for="year">Select Year</label>
+            <select id="year" name="year" disabled>
+            </select>
+        </section>
+        <button class="submit">Get holidays!</button>
+        <section class="table-wrapper">
+
+        </section>
+    </main>
+    <footer>
+        Powered by Oleh Chmut
+    </footer>
 </body>
 </html>
