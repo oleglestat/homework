@@ -118,7 +118,7 @@ function convertDays( daysObj, timeUnits, dayUnits ) {
 
 function updateDisplay( data, unit, days, date1, date2 ) {
 	let message = `${ date1 } - ${ date2 }, ${ days } = ${ data } ${ unit }`;
-	display.appendChild( document.createTextNode( message ) );
+	display.appendChild( document.createTextNode( `Result: ${message}` ) );
 	let log = JSON.parse( localStorage.getItem( 'history' ) );
 	if( log ) {
 		log = [...log];

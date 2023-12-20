@@ -1,0 +1,84 @@
+html, body {
+    box-sizing: border-box;
+    width: 768px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+select {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+footer {
+    flex-grow: 0;
+    margin-top: 20px;
+}
+
+.table-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.calculator-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.calculator-presets {
+    padding-bottom: 20px;
+}
+
+.calculator-presets button {
+    margin-right: 20px;
+}
+
+fieldset {
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    html, body {
+        width: 100%;
+        padding: 10px;
+    }
+
+    select {
+        max-width: 100%;
+    }
+}
