@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calculator</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer type="module" src="calculator.js"></script>
+    <script type="module" src="index.js"></script>
 </head>
 <body>
     <header>
@@ -14,15 +14,15 @@
     <nav>
         <ul>
             <li>
-                Time calculator - you are here
+                <button class="time-button" disabled>Time calculator</button>
             </li>
             <li>
-                <a href="calendar.html">Holiday calendar</a>
+                <button class="holiday-button">Holiday calendar</button>
             </li>
         </ul>
     </nav>
     <main>
-        <section>
+        <section class="time-section">
             <form action="" method="post" name="calculator" class="calculator">
                 <div class="calculator-inputs">
                     <h2>Calculator form</h2>
@@ -58,6 +58,22 @@
 
                 </section>
             </aside>
+        </section>
+        <section class="holiday-section" hidden="hidden">
+            <h2>Holiday calendar</h2>
+            <section class="selection">
+                <label for="country">Select Country</label>
+                <select id="country" name="country">
+                    <option value="">Chose a country</option>
+                </select>
+                <label for="year">Select Year</label>
+                <select id="year" name="year" disabled>
+                </select>
+            </section>
+            <button class="submit">Get holidays!</button>
+            <section class="table-wrapper">
+
+            </section>
         </section>
     </main>
     <footer>
