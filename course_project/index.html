@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="index.js"></script>
+</head>
+<body>
+    <header>
+        <h1>My course project</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <button class="time-button" disabled>Time calculator</button>
+            </li>
+            <li>
+                <button class="holiday-button">Holiday calendar</button>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section class="time-section">
+            <form action="" method="post" name="calculator" class="calculator">
+                <div class="calculator-inputs">
+                    <h2>Calculator form</h2>
+                    <label for="date-one">Select date</label>
+                    <input id="date-one" name="dateOne" type="date" required>
+                    <label for="date-two">Select second date</label>
+                    <input id="date-two" name="dateTwo" type="date" disabled required>
+                </div>
+                <div class="calculator-presets">
+                    <h2>Presets</h2>
+                    <button id="day" disabled>7 days</button>
+                    <button id="month" disabled>30 days</button>
+                </div>
+                <fieldset>
+                    <label><input type="radio" name="days" value="all" checked/> Every day</label>
+                    <label><input type="radio" name="days" value="workday" /> Workdays</label>
+                    <label><input type="radio" name="days" value="weekend" /> Weekends</label>
+                </fieldset>
+                <fieldset>
+                    <label><input type="radio" name="time" value="days" checked/> Days</label>
+                    <label><input type="radio" name="time" value="hours" /> Hours</label>
+                    <label><input type="radio" name="time" value="minutes" /> Minutes</label>
+                    <label><input type="radio" name="time" value="seconds" /> Seconds</label>
+                </fieldset>
+                <button type="submit" name="submit">Submit</button>
+            </form>
+            <div class="result">
+
+            </div>
+            <aside>
+                <h3>Log history</h3>
+                <section class="history">
+
+                </section>
+            </aside>
+        </section>
+        <section class="holiday-section" hidden="hidden">
+            <h2>Holiday calendar</h2>
+            <section class="selection">
+                <label for="country">Select Country</label>
+                <select id="country" name="country">
+                    <option value="">Chose a country</option>
+                </select>
+                <label for="year">Select Year</label>
+                <select id="year" name="year" disabled>
+                </select>
+            </section>
+            <button class="submit">Get holidays!</button>
+            <section class="table-wrapper">
+
+            </section>
+        </section>
+    </main>
+    <footer>
+        Powered by Oleh Chmut
+    </footer>
+
+</body>
+</html>
